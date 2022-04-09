@@ -1,0 +1,346 @@
+:root {
+  --color-dark: rgb(31, 29, 54);
+  --color-dark-light: rgb(63, 51, 81);
+  --color-purple: rgb(134, 72, 121);
+  --color-yellow: rgb(238, 241, 46);
+  --color-brown: rgb(165, 42, 42);
+}
+/* ***********************RESET ELEMENT*********************** */
+
+*,
+*::after,
+*::before {
+  box-sizing: border-box;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+img {
+  max-width: 100%;
+}
+
+/* *********************** BODY *********************** */
+
+body {
+  font-family: sans-serif;
+  background-color: var(--color-dark);
+  margin: 0;
+  position: relative;
+  scroll-behavior: smooth;
+}
+
+.title {
+  position: sticky;
+  top: 0px;
+  font-size: 1.1rem;
+  text-align: center;
+  margin: 0;
+  padding: 1rem 0;
+  background-color: var(--color-dark-light);
+  color: var(--color-brown);
+}
+
+@media screen and (min-width: 768px) {
+  .title {
+    font-size: 2.5rem;
+    text-align: center;
+    top: 0px;
+    position: sticky;
+    margin: 0;
+  }
+}
+
+/* ***********************BURGER MENU*********************** */
+
+.icon-menu {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 1000;
+  width: 51px;
+  height: 51px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--color-yellow);
+  transition: 0.5s;
+  cursor: pointer;
+
+}
+
+.icon-menu__bar,
+.icon-menu__bar::after,
+.icon-menu__bar::before {
+  --top: -0.7em;
+  --bottom: 0.7em;
+  width: 35px;
+  height: 5px;
+  border-radius: 3px;
+  background-color: var(--color-dark);
+}
+
+.icon-menu__bar {
+  position: relative;
+}
+
+.rotated {
+  transform: rotate(90deg);
+  transition: 0.5s;
+}
+
+.icon-menu__bar::before,
+.icon-menu__bar::after {
+  content: "";
+  position: absolute;
+  display: block;
+}
+
+.icon-menu__bar::before {
+  top: var(--top);
+}
+.icon-menu__bar::after {
+  top: var(--bottom);
+}
+
+.to-top{
+  background-color: var(--color-yellow);
+  width: 50px;
+  height: 50px;
+  bottom: 85px;
+  right: 20px;
+  position: fixed;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  border-radius: 50%;
+  transform: scale(0);
+  transition: 0.5s;
+  cursor: pointer;
+}
+
+.to-top--scale{
+  transform: scale(1);
+  transition: 0.5s;
+}
+
+.arrow-to-top{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  border-left: 7px solid transparent;
+  border-right: 7px solid transparent;
+  border-bottom: 14px solid black;
+  top: 11px;
+  width: 17px;
+  transition: 0.5s;
+}
+
+.arrow-to-top::after{
+  content: "";
+  width: 5px;
+  height: 15px;
+  background: black;
+  position: absolute;
+  top: 13px;
+}
+
+/* ***********************MENU LIST*********************** */
+
+.nav__menu {
+  background-color: rgba(20, 2, 12, 0.9);
+  color: var(--color-yellow);
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  transition: 0.5s;
+  z-index: 90;
+  transform: translateX(-100%);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  font-weight: bold;
+  font-size: 1.5rem;
+}
+
+.menu-translate {
+  transition: 0.5s;
+  transform: translateX(0);
+}
+
+.nav__link:hover {
+  border-bottom: 4px solid var(--color-purple);
+  color: var(--color-purple);
+  text-transform: uppercase;
+  transition: 0.3s;
+}
+
+/* **************Watch and Alarm Clock***************** */
+
+.section {
+  width: 100%;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+.section__title {
+  color: var(--color-yellow);
+  text-align: center;
+}
+
+.clock{
+  background-color: var(--color-purple);
+}
+
+.clock__container,
+.clock__btn-container{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-left: auto;
+  margin-right: auto;
+  gap: 15px;
+}
+
+.clock__container {
+  margin-top: 41%;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 90%;
+  height: 300px;
+  background-color: var(--color-dark-light);
+  box-shadow:-5px 5px 9px -6px var(--color-yellow), 5px -5px 9px -6px var(--color-yellow);
+  padding: 1rem;
+  font-size: 1.1rem;
+  color: var(--color-yellow);
+  border-radius: 11px;
+}
+
+@media screen and (min-width: 768px) {
+  .section__title {
+    font-size: 37px;
+    margin-bottom: 0;
+  }
+
+  .clock__container {
+    margin-top: 5%;
+  }
+}
+
+.clock__watch {
+  width: 100%;
+  height:100%;
+  transform: scale(0);
+}
+
+.clock__btn{
+  height: 35px;
+  background-color: transparent;
+  color: var(--color-dark);
+  font-weight: bold;
+  border-radius: 5px;
+  border: 1.5px solid var(--color-yellow);
+}
+
+.clock__btn--disabled {
+  color: transparent;
+}
+
+.fragment {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  height: 100%;
+}
+
+.fragment p:first-child{
+  margin-top: 0;
+  font-size: 25px;
+  text-align: center;
+}
+
+.fragment p:nth-child(2){
+  font-size: 3rem;
+  margin: 0;
+  color: var(--color-brown);
+}
+
+.scale0{
+  transform: scale(0);
+  transition: .5s;
+}
+.scale1{
+  transform: scale(1);
+  transition: .5s;
+}
+
+.tranright{
+  transition: .5s;
+  transform: translateY(10px);
+}
+
+
+/* **************COUNT DOWN***************** */
+
+.count-down{
+  background-color: salmon;
+  display: flex;
+  flex-direction: column;
+}
+
+.count-down__title{
+  text-align: center;
+}
+
+.count-down__time-remaining{
+  margin-top: auto;
+  text-align: center;
+  font-size: 1.5rem;
+}
+
+.form{
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 7px;
+  margin-block: auto;
+}
+
+.input-group{
+  text-align: center;
+}
+
+.input-group--last{
+  margin-bottom: 5rem;
+}
+
+.form__info{
+  display: block;
+  font-size: 1.3rem;
+}
+
+.form__date{
+  color: rgb(4, 1, 15);
+  width: 5rem;
+  height: 2.5rem;
+  border: none;
+  border-radius: .3rem;
+  text-align: center;
+  font-size: 1.1rem;
+  padding: 0;
+}
